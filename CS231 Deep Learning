@@ -1,0 +1,95 @@
+
+1. Regularization: prevent the model from doing too well on training data and act on Loss function
+	such as L2/L1 regularization, Dropout, Batch normalization, Stochastic depth, Fractional pooling, etc
+	Why regularize?
+	- Express preferences over weights
+	- Make the model simple so it works on test data
+	- Improve optimization by adding curvature
+	
+2. CNN output size: (N-F)/stride+1	N: input size, F: filter size 
+	if pad with n pixel, add 2n into N
+	1 filter has 1 bias. For example, 5x5x3x10 filter has (5x5x3+1)x10 params.
+
+3. Batch Normalization:
+	- Improves gradient flow through the network
+	- Allows higher learning rates
+	- Reduces the strong dependence on initialization
+	- Acts as a form of regularization in a funny way, and slightly reduces the need for dropout, maybe
+	Usually inserted after Fully Connected or Convolutional layers, and before nonlinearity.
+	
+4. Weight Initialization
+
+5. Data Preprocessing: we always want zero-mean data.
+
+6. Activation Functions:
+	- Use ReLU. Be careful with your learning rates
+	- Try out Leaky ReLU / Maxout / ELU
+	- Try out tanh but don’t expect much
+	- Don’t use sigmoid
+	
+7. CNN Architectures:
+	Case Studies
+	- AlexNet
+	- VGG
+	- GoogLeNet
+	- ResNet
+	Also....
+	- NiN (Network in Network)
+	- Wide ResNet
+	- ResNeXT
+	- Stochastic Depth
+	- Squeeze-and-Excitation Network
+	- DenseNet
+	- FractalNet
+	- SqueezeNet
+	- NASNet
+	Summary:
+	- VGG, GoogLeNet, ResNet all in wide use, available in model zoos
+	- ResNet current best default, also consider SENet when available
+	- Trend towards extremely deep networks
+	- Significant research centers around design of layer / skip connections and improving gradient flow
+	- Efforts to investigate necessity of depth vs. width and residual connections
+	- Even more recent trend towards meta-learning
+	
+8. RCNN (Recurrent CNN):
+	- RNNs allow a lot of flexibility in architecture design
+	- Vanilla RNNs are simple but don’t work very well
+	- Common to use LSTM or GRU: their additive interactions improve gradient flow
+	- Backward flow of gradients in RNN can explode or vanish. Exploding is controlled with gradient clipping. Vanishing is controlled with additive interactions (LSTM, Long Short Term Memory)
+	- Better/simpler architectures are a hot topic of current research
+	- Better understanding (both theoretical and empirical) is needed.
+	
+9. Supervised vs Unsupervised Learning:
+	Supervised Learning:
+	-Data: (x, y) x is data, y is label
+	-Goal: Learn a function to map x -> y
+	-Examples: Classification, regression, object detection, semantic segmentation, image captioning, etc.
+	Unsupervised Learning:
+	-Data: x, Just data, no labels!
+	-Goal: Learn some underlying hidden structure of the data
+	-Examples: Clustering, dimensionality reduction, feature learning, density estimation, etc.
+
+10. Generative Models:
+	- PixelRNN and PixelCNN
+		Explicit density model, optimizes exact likelihood, good samples. But inefficient sequential generation.
+	- Variational Autoencoders (VAE)
+		Optimize variational lower bound on likelihood. Useful latent representation, inference queries. But current sample quality not the best.
+	- Generative Adversarial Networks (GANs)
+		Game-theoretic approach, best samples!	But can be tricky and unstable to train, no inference queries. 
+
+11. Object Detection: Lots of variables
+	Base Network:
+		VGG16
+		ResNet-101
+		Inception V2
+		Inception V3
+		Inception
+		ResNet
+		MobileNet
+	Object Detection architecture:
+		Faster R-CNN
+		R-FCN
+		SSD
+	Takeaways: 
+	Faster R-CNN is slower but more accurate.
+	SSD is much faster but not as accurate.
