@@ -6,3 +6,5 @@ tensorflow install (use anaconda):
 	(if downloading python is too slow, try this commant)
 	conda config –add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 	conda config –set show_channel_urls yes
+	
+KITTI: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
