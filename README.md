@@ -8,3 +8,6 @@ tensorflow install (use anaconda):
 	conda config –set show_channel_urls yes
 	
 KITTI: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d
+
+tensorboard using:
+	tensorboard --logdir=[log dir] --host=127.0.0.1
